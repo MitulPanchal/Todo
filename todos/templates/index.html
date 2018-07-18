@@ -1,0 +1,10 @@
+{% include 'partials/header.html' %}
+    <div class="container-fluid">
+    <ul class="list-group list-group-flush">
+        {% for todo in todos %}
+            <li class="list-group-item"><a href="/details/{{ todo.id }}"><b> {{ todo.title }}</b></a>: {{ todo.text }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+{% include 'partials/footer.html' %}
+
