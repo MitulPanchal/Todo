@@ -11,6 +11,14 @@
         Created on {{ todo.created_at }}
         <br><hr>
         <a href="/"><button type="submit" class="btn btn-primary" >Go Back</button></a>
-        <button class="btn btn-danger">Delete</button>
+        <!--<button class="btn btn-danger">Delete</button>-->
+
+        <form class="nav navbar-nav navbar-right" action="{% url 'delete' todo.id %}" method="post" style="display:inline">
+          {% csrf_token %}
+          <input type="hidden" name="todo_id" value="{{ todo.id }}">
+          <button type="submit" class="btn btn-danger" style="margin-right: 20px;">
+            Delete
+          </button>
+        </form>
     </div>
 {% include 'partials/footer.html' %}
